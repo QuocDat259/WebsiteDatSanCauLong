@@ -99,6 +99,7 @@ namespace WebsiteDatSan.Models
         [Required(ErrorMessage = "Address is required.")]
         [Display(Name = "Address")]
         public string Address { get; set; }
+        public bool? IsApproved { get; set; }
 
     }
 

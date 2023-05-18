@@ -116,9 +116,17 @@ namespace WebsiteDatSan.Controllers
                     }
                     else if (roles.Contains("ChuSan"))
                     {
-                            return RedirectToAction("Index", "Homes", new { area = "ChuSan" });
+                            if (user.IsApproved == false)
+                            {
+                                return View("message", "QLChuSan", new { area = "Admin" });
+                            }
+                            else
+                            {
+                                return RedirectToAction("Index", "Homes", new { area = "ChuSan" });
+                            }
 
-                     }
+
+                        }
                         else if (roles.Contains("Khach"))
                     {
                         return RedirectToAction("Index", "Home");
@@ -200,7 +208,7 @@ namespace WebsiteDatSan.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new AspNetUsers { UserName = model.UserName, Email = model.Email, PhoneNumber = model.PhoneNumber, FullName = model.FullName, Address = model.Address};
+                var user = new AspNetUsers { UserName = model.Email, Email = model.Email, PhoneNumber = model.PhoneNumber, FullName = model.FullName, Address = model.Address, IsApproved = false };
                 var result = await UserManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)

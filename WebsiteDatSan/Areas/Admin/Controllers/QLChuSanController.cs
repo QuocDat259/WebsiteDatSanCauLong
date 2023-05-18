@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebsiteDatSan.Models;
+using System.Net;
+using System.Threading.Tasks;
 
 namespace WebsiteDatSan.Areas.Admin.Controllers
 {
@@ -36,6 +38,32 @@ namespace WebsiteDatSan.Areas.Admin.Controllers
 
             // Return a fallback view or handle the case when "chủ sân" role is not found
             return View(ListUser);
+        }
+
+        public async Task<ActionResult> Approve(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+
+            user.IsApproved = true;
+            await _userManager.UpdateAsync(user);
+
+            // Lưu thay đổi vào cơ sở dữ liệu
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+        }
+        public ActionResult message()
+        {
+            return View();
         }
     }
 }
