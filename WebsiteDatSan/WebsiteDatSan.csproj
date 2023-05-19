@@ -175,6 +175,7 @@
     <Compile Include="Areas\Admin\Controllers\QLChuSanController.cs" />
     <Compile Include="Areas\ChuSan\ChuSanAreaRegistration.cs" />
     <Compile Include="Areas\ChuSan\Controllers\homesController.cs" />
+    <Compile Include="Areas\ChuSan\Controllers\Sans1Controller.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -188,11 +189,11 @@
     <Compile Include="Models\AspNetUsers.cs" />
     <Compile Include="Models\ChiTiet_DatSan.cs" />
     <Compile Include="Models\DatSan.cs" />
-    <Compile Include="Models\DatSanCauLong.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LoaiSan.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\San.cs" />
+    <Compile Include="Models\WebCauLongss.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -217,6 +218,11 @@
     <Content Include="Areas\Admin\Views\Homess\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QLChuSan\Index.cshtml" />
     <Content Include="Areas\Admin\Views\QLChuSan\message.cshtml" />
+    <Content Include="Areas\ChuSan\Views\Sans1\Create.cshtml" />
+    <Content Include="Areas\ChuSan\Views\Sans1\Delete.cshtml" />
+    <Content Include="Areas\ChuSan\Views\Sans1\Details.cshtml" />
+    <Content Include="Areas\ChuSan\Views\Sans1\Edit.cshtml" />
+    <Content Include="Areas\ChuSan\Views\Sans1\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

@@ -5,17 +5,13 @@ using System.Linq;
 
 namespace WebsiteDatSan.Models
 {
-    public partial class DatSanCauLong : DbContext
+    public partial class WebCauLongss : DbContext
     {
-        public DatSanCauLong()
-            : base("name=DatSanCauLong")
+        public WebCauLongss()
+            : base("name=WebCauLongss")
         {
         }
 
-        public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
-        public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
-        public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
-        public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
         public virtual DbSet<ChiTiet_DatSan> ChiTiet_DatSan { get; set; }
         public virtual DbSet<DatSan> DatSan { get; set; }
         public virtual DbSet<LoaiSan> LoaiSan { get; set; }
@@ -34,7 +30,7 @@ namespace WebsiteDatSan.Models
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<San>()
-                .Property(e => e.GIaTien)
+                .Property(e => e.GiaTien)
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<San>()

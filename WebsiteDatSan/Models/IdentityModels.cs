@@ -34,5 +34,9 @@ namespace WebsiteDatSan.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<WebsiteDatSan.Models.San> Sans { get; set; }
+
+        public System.Data.Entity.DbSet<WebsiteDatSan.Models.LoaiSan> LoaiSans { get; set; }
     }
 }
