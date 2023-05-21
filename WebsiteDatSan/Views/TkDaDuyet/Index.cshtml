@@ -20,19 +20,10 @@
             {
                 <div class="col-lg-4 swiper-slide">
                     <div class="team-box text-center">
-                        @*<div @Html.ActionLink(item.UserName, "StoreProducts", "Stores", new { id = item.Id }, null) style="background-image: url('../../content/images/chef/@item.Image');"
-             class="team-img back-img" >
-        </div>*@
                         <a href="@Url.Action("Index", "TKDaDuyet", new { id = item.Id })">
-                            @*<div style="background-image: url('@Url.Content("~/content/images/chef/" + item.Image)');" class="team-img back-img"></div>*@
                         </a>
-
-
-
-                        @*<a href="@Url.Action("Details", "Store", new { id = item.Id })">*@
                         <div>
-                            @*<td>@Html.ActionLink(item.UserName, "StoreProducts", "Stores", new { id = item.Id }, null)</td>*@
-                            @*<input type="hidden" value=@product.Userid />*@
+                           
                         </div>
                         <div class="social-icon">
                             <ul>
@@ -52,7 +43,6 @@
                             </ul>
                         </div>
                         <td>@Html.ActionLink(item.UserName, "ShowSanChuSan", "TkDaDuyet", new { id = item.Id }, null)</td>
-                        @*<h3 class="h3-title">@item.UserName</h3>*@
                     </div>
                 </div>
             }

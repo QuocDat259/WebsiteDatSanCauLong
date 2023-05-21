@@ -116,18 +116,16 @@ namespace WebsiteDatSan.Controllers
                     }
                     else if (roles.Contains("ChuSan"))
                     {
-                            if (user.IsApproved == false)
+                            if (user.IsApproved == true)
                             {
-                                return View("message", "QLChuSan", new { area = "Admin" });
+                                return RedirectToAction("Index", "Homes", new { area = "ChuSan" });                               
                             }
                             else
                             {
-                                return RedirectToAction("Index", "Homes", new { area = "ChuSan" });
+                                return RedirectToAction("message", "QLChuSan", new { area = "Admin" });
                             }
-
-
-                        }
-                        else if (roles.Contains("Khach"))
+                    }
+                    else if (roles.Contains("Khach"))
                     {
                         return RedirectToAction("Index", "Home");
                     }
