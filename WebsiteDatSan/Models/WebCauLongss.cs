@@ -8,12 +8,13 @@ namespace WebsiteDatSan.Models
     public partial class WebCauLongss : DbContext
     {
         public WebCauLongss()
-            : base("name=WebCauLongss")
+            : base("name=WebCauLongss1")
         {
         }
 
         public virtual DbSet<ChiTiet_DatSan> ChiTiet_DatSan { get; set; }
         public virtual DbSet<DatSan> DatSan { get; set; }
+        public virtual DbSet<GioDat> GioDat { get; set; }
         public virtual DbSet<LoaiSan> LoaiSan { get; set; }
         public virtual DbSet<San> San { get; set; }
 
@@ -37,6 +38,11 @@ namespace WebsiteDatSan.Models
                 .HasMany(e => e.ChiTiet_DatSan)
                 .WithRequired(e => e.San)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<San>()
+                .HasMany(e => e.GioDat)
+                .WithOptional(e => e.San)
+                .HasForeignKey(e => e.idsan);
         }
     }
 }

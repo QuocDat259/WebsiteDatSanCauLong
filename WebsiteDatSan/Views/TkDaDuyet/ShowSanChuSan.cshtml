@@ -12,9 +12,9 @@
 @*        <th>
             @Html.DisplayNameFor(model => model.LoaiSan.TenLoaiSan)
         </th>*@
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.TenSan)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.DiaChi)
         </th>
@@ -32,11 +32,11 @@
 
 @foreach (var item in Model) {
     <tr>
-@*        <td>
+        @*        <td>
             @Html.DisplayFor(modelItem => item.LoaiSan.TenLoaiSan)
         </td>*@
         <td>
-            @Html.DisplayFor(modelItem => item.TenSan)
+            @Html.ActionLink(item.TenSan, "ShowGioDats", new { id = item.MaSan })
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DiaChi)
@@ -51,7 +51,7 @@
             @Html.DisplayFor(modelItem => item.IdUser)
         </td>
         <td>
-            @Html.ActionLink("Details", "Details", new { id=item.MaSan }) |
+            @Html.ActionLink("Details", "Details", new { id = item.MaSan }) |
         </td>
     </tr>
 }

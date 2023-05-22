@@ -18,11 +18,18 @@ namespace WebsiteDatSan.Models
         [Key]
         public int MaDat { get; set; }
 
+        [StringLength(128)]
+        public string Id { get; set; }
+
+        public int? MaSan { get; set; }
+
         public DateTime? NgayDat { get; set; }
 
-        public double? SoTien { get; set; }
+        public int? MaGioDat { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTiet_DatSan> ChiTiet_DatSan { get; set; }
+
+        public virtual San San { get; set; }
     }
 }

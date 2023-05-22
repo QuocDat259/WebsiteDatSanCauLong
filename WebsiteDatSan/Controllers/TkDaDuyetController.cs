@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebsiteDatSan.Models;
 using System.Net;
+using System.Data.Entity.Core;
 
 namespace WebsiteDatSan.Controllers
 {
@@ -31,6 +32,21 @@ namespace WebsiteDatSan.Controllers
                 var sans = db.Sans.Where(p => p.IdUser == id /*&& p.status == true*/).ToList();
                 ViewBag.userId = id;
                 return View(sans);
+            }
+        }
+        
+
+        public ActionResult ShowGioDats(int id)
+        {
+            using (var db = new WebCauLongss())
+            {
+                var gioDats = db.GioDat.Where(g => g.idsan == id).ToList();
+                if (gioDats.Count == 0)
+                {
+                    return HttpNotFound();
+                }
+
+                return View(gioDats);
             }
         }
     }

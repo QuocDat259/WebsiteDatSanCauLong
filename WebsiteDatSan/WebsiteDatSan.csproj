@@ -179,6 +179,7 @@
     <Compile Include="Areas\ChuSan\Controllers\Sans1Controller.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DatSanController.cs" />
+    <Compile Include="Controllers\GioDatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\TkDaDuyetController.cs" />
@@ -192,6 +193,7 @@
     <Compile Include="Models\AspNetUsers.cs" />
     <Compile Include="Models\ChiTiet_DatSan.cs" />
     <Compile Include="Models\DatSan.cs" />
+    <Compile Include="Models\GioDat.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LoaiSan.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -2116,6 +2118,12 @@
     <Content Include="Views\TkDaDuyet\Index.cshtml" />
     <Content Include="Views\TkDaDuyet\ShowSanChuSan.cshtml" />
     <Content Include="Views\DatSan\Index.cshtml" />
+    <Content Include="Views\GioDat\Create.cshtml" />
+    <Content Include="Views\GioDat\Delete.cshtml" />
+    <Content Include="Views\GioDat\Details.cshtml" />
+    <Content Include="Views\GioDat\Edit.cshtml" />
+    <Content Include="Views\GioDat\Index.cshtml" />
+    <Content Include="Views\TkDaDuyet\ShowGioDats.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

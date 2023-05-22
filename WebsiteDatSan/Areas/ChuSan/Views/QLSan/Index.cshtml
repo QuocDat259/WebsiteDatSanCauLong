@@ -1,0 +1,57 @@
+﻿@model IEnumerable<WebsiteDatSan.Models.San>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>Tên sân</th>
+        <th>Loại sân</th>
+        <th>Địa chỉ</th>
+        <th>Giá tiền</th>
+        <th>Trạng thái</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenSan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoaiSan.TenLoaiSan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiaTien)
+        </td>
+        <td>
+            @if (item.TrangThai == false)
+            {
+                <button class="btn-approve" data-id="@item.MaSan">Hết</button>
+            }
+            else
+            {
+                <button class="btn-approve" data-id="@item.MaSan" disabled>Trống</button>
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdUser)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.MaSan }) |
+            @Html.ActionLink("Details", "Details", new { id = item.MaSan }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.MaSan })
+        </td>
+    </tr>
+}
+
+</table>

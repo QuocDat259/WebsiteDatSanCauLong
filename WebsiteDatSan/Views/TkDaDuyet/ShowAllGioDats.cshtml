@@ -1,0 +1,25 @@
+﻿@model IEnumerable<WebsiteDatSan.Models.GioDat>
+
+@{
+    ViewBag.Title = "All GioDats";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>All GioDats</h2>
+
+<table class="table">
+    <tr>
+        <th>MaGioDat</th>
+        <th>GioBatDau</th>
+        <th>GioKetThuc</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.MaGioDat</td>
+            <td>@item.GioBatDau</td>
+            <td>@item.GioKetThuc</td>
+        </tr>
+    }
+</table>

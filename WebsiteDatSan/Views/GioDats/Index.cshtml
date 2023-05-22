@@ -1,0 +1,37 @@
+﻿@model List<WebsiteDatSan.Models.GioDat>
+
+@{
+    ViewBag.Title = "GioDat List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GioDat List</h2>
+
+@if (Model != null && Model.Count > 0)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>MaGioDat</th>
+                <th>GioBatDau</th>
+                <th>GioKetThuc</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var gioDat in Model)
+            {
+                <tr>
+                    <td>@gioDat.MaGioDat</td>
+                    <td>@gioDat.GioBatDau</td>
+                    <td>@gioDat.GioKetThuc</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No GioDat available.</p>
+}
+
+@Html.ActionLink("Back to San List", "Index", "San")
