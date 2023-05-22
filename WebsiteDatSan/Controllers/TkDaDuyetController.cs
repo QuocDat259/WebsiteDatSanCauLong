@@ -34,20 +34,30 @@ namespace WebsiteDatSan.Controllers
                 return View(sans);
             }
         }
-        
+
 
         public ActionResult ShowGioDats(int id)
         {
-            using (var db = new WebCauLongss())
+            try
             {
-                var gioDats = db.GioDat.Where(g => g.idsan == id).ToList();
-                if (gioDats.Count == 0)
+                using (var db = new WebCauLongss())
                 {
-                    return HttpNotFound();
-                }
+                    var gioDats = db.GioDat.Where(g => g.idsan == id).ToList();
+                    if (gioDats.Count == 0)
+                    {
+                        return HttpNotFound();
+                    }
 
-                return View(gioDats);
+                    return View(gioDats);
+                }
+            }
+            catch (EntityCommandExecutionException ex)
+            {
+                // Log or handle the exception as needed
+                var innerException = ex.InnerException;
+                throw;
             }
         }
+
     }
 }

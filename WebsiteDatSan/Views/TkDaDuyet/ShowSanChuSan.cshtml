@@ -12,9 +12,9 @@
 @*        <th>
             @Html.DisplayNameFor(model => model.LoaiSan.TenLoaiSan)
         </th>*@
-        @*<th>
-            @Html.DisplayNameFor(model => model.TenSan)
-        </th>*@
+        <th>
+            Tên sân
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.DiaChi)
         </th>
@@ -52,6 +52,7 @@
         </td>
         <td>
             @Html.ActionLink("Details", "Details", new { id = item.MaSan }) |
+            @Html.ActionLink("Back to List", "Index")
         </td>
     </tr>
 }

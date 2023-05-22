@@ -18,6 +18,8 @@ namespace WebsiteDatSan.Models
 
         public int? idsan { get; set; }
 
+        public bool? TrangThai { get; set; }
+
         public virtual San San { get; set; }
     }
 }

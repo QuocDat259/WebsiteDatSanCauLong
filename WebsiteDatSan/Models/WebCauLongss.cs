@@ -8,7 +8,7 @@ namespace WebsiteDatSan.Models
     public partial class WebCauLongss : DbContext
     {
         public WebCauLongss()
-            : base("name=WebCauLongss1")
+            : base("name=WebCauLongss")
         {
         }
 

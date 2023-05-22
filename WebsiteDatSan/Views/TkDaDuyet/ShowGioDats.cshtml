@@ -5,6 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<style>
+    .het-san {
+        background-color: #ffcccc;
+    }
+</style>
+
 <h2>Index</h2>
 
 <p>
@@ -12,24 +18,15 @@
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.San.TenSan)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GioBatDau)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GioKetThuc)
-        </th>
+        <th>Giờ bắt đầu</th>
+        <th>Giờ kết thúc</th>
+        <th>Trạng thái sân</th>
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
         <tr>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.San.TenSan)
-            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.GioBatDau)
             </td>
@@ -37,11 +34,19 @@
                 @Html.DisplayFor(modelItem => item.GioKetThuc)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.MaGioDat }) |
-                @Html.ActionLink("Details", "Details", new { id = item.MaGioDat }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.MaGioDat })
+                @((item.TrangThai == true) ? "Còn" : "Hết")
+            </td>
+            <td>
+                @if (item.TrangThai == true)
+                {
+                    <button type="button" onclick="location.href='@Url.Action("DatSan", new { id = item.MaGioDat })'">Đặt sân</button>
+                }
+                else
+                {
+                    <button type="button" disabled style="background-color: #ffcccc;">Đặt sân</button>
+                }
             </td>
         </tr>
     }
-
 </table>
+@Html.ActionLink("Back to List", "ShowSanChuSan")
