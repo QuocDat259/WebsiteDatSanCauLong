@@ -1,0 +1,30 @@
+﻿@model WebsiteDatSan.Models.GioDat
+
+@{
+    ViewBag.Title = "DatSan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Đặt Sân</h2>
+
+<p>
+    <strong>Người đăng nhập:</strong> @ViewBag.UserId
+</p>
+
+<p>
+    <strong>Giờ Đặt:</strong> @Model.GioBatDau - @Model.GioKetThuc
+</p>
+
+<p>
+    <strong>Sân:</strong> @ViewBag.San.TenSan
+</p>
+
+<p>
+    <strong>Địa chỉ:</strong> @ViewBag.San.DiaChi
+</p>
+
+<p>
+    <!-- Add your form or button for making a reservation here -->
+</p>
+
+@Html.ActionLink("Back to List", "Index")

@@ -39,7 +39,7 @@
             <td>
                 @if (item.TrangThai == true)
                 {
-                    <button type="button" onclick="location.href='@Url.Action("DatSan", new { id = item.MaGioDat })'">Đặt sân</button>
+                    <button type="button" onclick="location.href='@Url.Action("DatSan","DatSan", new { id = item.MaGioDat })'">Đặt sân</button>
                 }
                 else
                 {
