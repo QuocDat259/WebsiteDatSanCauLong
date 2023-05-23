@@ -8,7 +8,7 @@
 <h2>Đặt Sân</h2>
 
 <p>
-    <strong>Người đăng nhập:</strong> @ViewBag.UserId
+    <strong>Người đăng nhập:</strong> @((string)ViewBag.UserName)
 </p>
 
 <p>
@@ -16,15 +16,24 @@
 </p>
 
 <p>
-    <strong>Sân:</strong> @ViewBag.San.TenSan
+    <strong>Sân:</strong> @((string)ViewBag.San.TenSan)
 </p>
 
 <p>
-    <strong>Địa chỉ:</strong> @ViewBag.San.DiaChi
+    <strong>Địa chỉ:</strong> @((string)ViewBag.San.DiaChi)
 </p>
 
 <p>
-    <!-- Add your form or button for making a reservation here -->
+    <strong>Ngày Đặt:</strong> @((DateTime)ViewBag.NgayDat)
 </p>
+
+<p>
+    <strong>Giá Tiền:</strong> @ViewBag.GiaTien
+</p>
+
+<td>
+    <button onclick="location.href='@Url.Action("Payment", "DatSan")'">Thanh Toán</button>
+
+</td>
 
 @Html.ActionLink("Back to List", "Index")
