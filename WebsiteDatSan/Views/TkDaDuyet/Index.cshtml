@@ -42,7 +42,9 @@
                                 </li>
                             </ul>
                         </div>
-                        <td>@Html.ActionLink(item.UserName, "ShowSanChuSan", "TkDaDuyet", new { id = item.Id }, null)</td>
+                        <div>
+                            @Html.ActionLink(item.UserName, "ShowSanChuSan", "TkDaDuyet", new { id = item.Id }, null)
+                        </div>
                     </div>
                 </div>
             }

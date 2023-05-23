@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
+@model IEnumerable<WebsiteDatSan.Models.AspNetUsers>
 
 <div class="humberger__menu__overlay"></div>
 <div class="humberger__menu__wrapper">
@@ -153,36 +153,36 @@
 </section>
 
 @*<section class="cafesanvuon">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 box-text">
-                <div class="content">
-                    <h3>Cafe sân vườn</h3>
-                    <p>
-                        Lắng nghe âm thanh của gió quyện cùng mùi hương của cỏ cây, ngắm nhìn tia nắng xuyên qua
-                        từng kẽ rặng dừa và mặt hồ xanh ngọc biếc ẩn mình dưới cái nắng chiều lung linh, đó là
-                        cái cảm giác yên bình khi dừng chân nghỉ ngơi tại Cafe Thảo Thiện.
-                    </p>
-                    <p>
-                        Cafe Thảo Thiện được thiết kế ở không gian mở, kết hợp sân vườn, cây cỏ và bóng mát, tầm
-                        nhìn hướng ra những làn nước trong xanh mát dịu của hồ thiên nga, mang lại cảm giác
-                        thanh bình, dễ chịu cho thực khách đến đây thưởng thức ly cafe đậm chất Việt
-                    </p>
-                    <p>
-                        Tạm gác lại công việc, bận rộn nơi thành thị, hãy đến Thảo Thiện để say sưa với hương vị
-                        đắng của cafe, quyện cùng bản hòa tấu của cảnh sắc thiên nhiên đậm chất tình, bạn nhé!
-                    </p>
-                    <p>
-                        Tạm gác lại công việc, bận rộn nơi thành thị, hãy đến Thảo Thiện để say sưa với hương vị
-                        đắng của cafe, quyện cùng bản hòa tấu của cảnh sắc thiên nhiên đậm chất tình, bạn nhé!
-                    </p>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 box-text">
+                    <div class="content">
+                        <h3>Cafe sân vườn</h3>
+                        <p>
+                            Lắng nghe âm thanh của gió quyện cùng mùi hương của cỏ cây, ngắm nhìn tia nắng xuyên qua
+                            từng kẽ rặng dừa và mặt hồ xanh ngọc biếc ẩn mình dưới cái nắng chiều lung linh, đó là
+                            cái cảm giác yên bình khi dừng chân nghỉ ngơi tại Cafe Thảo Thiện.
+                        </p>
+                        <p>
+                            Cafe Thảo Thiện được thiết kế ở không gian mở, kết hợp sân vườn, cây cỏ và bóng mát, tầm
+                            nhìn hướng ra những làn nước trong xanh mát dịu của hồ thiên nga, mang lại cảm giác
+                            thanh bình, dễ chịu cho thực khách đến đây thưởng thức ly cafe đậm chất Việt
+                        </p>
+                        <p>
+                            Tạm gác lại công việc, bận rộn nơi thành thị, hãy đến Thảo Thiện để say sưa với hương vị
+                            đắng của cafe, quyện cùng bản hòa tấu của cảnh sắc thiên nhiên đậm chất tình, bạn nhé!
+                        </p>
+                        <p>
+                            Tạm gác lại công việc, bận rộn nơi thành thị, hãy đến Thảo Thiện để say sưa với hương vị
+                            đắng của cafe, quyện cùng bản hòa tấu của cảnh sắc thiên nhiên đậm chất tình, bạn nhé!
+                        </p>
+                    </div>
                 </div>
             </div>
+            <div class="col-lg-6"></div>
         </div>
-        <div class="col-lg-6"></div>
-    </div>
-    </div>
-</section>*@
+        </div>
+    </section>*@
 <!-- ==================cafe sân vườn =================== -->
 <!-- Tìm căn hộ hoàn hảo -->
 <section class="featured spad">
@@ -203,8 +203,12 @@
                 </div>
             </div>
         </div>
+        <div>
+            @Html.Action("Index", "TkDaDuyet")
+        </div>
         <div class="row featured__filter">
-            <div class="col-lg-3 col-md-4 col-sm-6 mix thuDuc">
+            
+                @*<div class="col-lg-3 col-md-4 col-sm-6 mix thuDuc">
                 <div class="card mb-4">
                     <img class="card-img-top" src="~/img/ks1.png" alt="Card image cap">
                     <div class="card-body">
@@ -507,7 +511,7 @@
 
                     </div>
                 </div>
-            </div>
+            </div>*@
         </div>
     </div>
 </section>
