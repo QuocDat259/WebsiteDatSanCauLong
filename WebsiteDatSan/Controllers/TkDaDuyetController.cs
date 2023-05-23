@@ -12,7 +12,7 @@ using System.Data.Entity.Core;
 namespace WebsiteDatSan.Controllers
 {
     public class TkDaDuyetController : Controller
-    {
+    {                                                                               
         // GET: TkDaDuyet
         public ActionResult Index()
         {
@@ -45,7 +45,8 @@ namespace WebsiteDatSan.Controllers
                     var gioDats = db.GioDat.Where(g => g.idsan == id).ToList();
                     if (gioDats.Count == 0)
                     {
-                        return HttpNotFound();
+                        string message = "Không có khung giờ nào được tìm thấy.";
+                        return Content(message);
                     }
 
                     return View(gioDats);

@@ -5,11 +5,14 @@
 }
 
 @model IEnumerable<WebsiteDatSan.Models.AspNetUsers>
+@*@{
+        ViewBag.Title = "Index";
+        Layout = /*"~/Views/Shared/_Layout.cshtml";*/ null;
+    }*@
 @{
     ViewBag.Title = "Index";
-    Layout = /*"~/Views/Shared/_Layout.cshtml";*/ null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 
 <section class="our-team section">
 
@@ -22,26 +25,6 @@
                     <div class="team-box text-center">
                         <a href="@Url.Action("Index", "TKDaDuyet", new { id = item.Id })">
                         </a>
-                        <div>
-                           
-                        </div>
-                        <div class="social-icon">
-                            <ul>
-                                <li>
-                                    <a href="#" )><i class="uil uil-facebook-f"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="uil uil-instagram"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="uil uil-youtube"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
                         <div>
                             @Html.ActionLink(item.UserName, "ShowSanChuSan", "TkDaDuyet", new { id = item.Id }, null)
                         </div>

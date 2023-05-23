@@ -13,7 +13,7 @@
             @Html.DisplayNameFor(model => model.LoaiSan.TenLoaiSan)
         </th>*@
         <th>
-            Tên sân
+            @Html.DisplayNameFor(model => model.TenSan)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DiaChi)
@@ -36,7 +36,7 @@
             @Html.DisplayFor(modelItem => item.LoaiSan.TenLoaiSan)
         </td>*@
         <td>
-            @Html.ActionLink(item.TenSan, "ShowGioDats", new { id = item.MaSan })
+            @Html.DisplayFor(modelItem => item.TenSan)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DiaChi)
@@ -50,6 +50,10 @@
         <td>
             @Html.DisplayFor(modelItem => item.IdUser)
         </td>
+        <td>
+            <a>  @Html.ActionLink("xem", "ShowGioDats", new { id = item.MaSan })</a>
+        </td>
+
         <td>
             @Html.ActionLink("Details", "Details", new { id = item.MaSan }) |
             @Html.ActionLink("Back to List", "Index")

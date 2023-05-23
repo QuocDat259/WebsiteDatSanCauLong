@@ -176,12 +176,14 @@
     <Compile Include="Areas\Admin\Controllers\QLChuSanController.cs" />
     <Compile Include="Areas\ChuSan\ChuSanAreaRegistration.cs" />
     <Compile Include="Areas\ChuSan\Controllers\homesController.cs" />
+    <Compile Include="Areas\ChuSan\Controllers\QLGioDatsController.cs" />
     <Compile Include="Areas\ChuSan\Controllers\Sans1Controller.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DatSanController.cs" />
     <Compile Include="Controllers\GioDatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SansController.cs" />
     <Compile Include="Controllers\TkDaDuyetController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -2070,6 +2072,11 @@
     <Content Include="Content\admin\vendor\jquery\jquery.min.map" />
     <Content Include="Content\admin\vendor\jquery\jquery.slim.min.map" />
     <Content Include="Areas\Admin\Views\DonViHopTac\Index.cshtml" />
+    <Content Include="Areas\ChuSan\Views\QLGioDats\Create.cshtml" />
+    <Content Include="Areas\ChuSan\Views\QLGioDats\Delete.cshtml" />
+    <Content Include="Areas\ChuSan\Views\QLGioDats\Details.cshtml" />
+    <Content Include="Areas\ChuSan\Views\QLGioDats\Edit.cshtml" />
+    <Content Include="Areas\ChuSan\Views\QLGioDats\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2124,6 +2131,11 @@
     <Content Include="Views\GioDat\Edit.cshtml" />
     <Content Include="Views\GioDat\Index.cshtml" />
     <Content Include="Views\TkDaDuyet\ShowGioDats.cshtml" />
+    <Content Include="Views\Sans\Create.cshtml" />
+    <Content Include="Views\Sans\Delete.cshtml" />
+    <Content Include="Views\Sans\Details.cshtml" />
+    <Content Include="Views\Sans\Edit.cshtml" />
+    <Content Include="Views\Sans\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
