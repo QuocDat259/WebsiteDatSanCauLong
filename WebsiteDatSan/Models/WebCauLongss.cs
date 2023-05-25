@@ -12,18 +12,18 @@ namespace WebsiteDatSan.Models
         {
         }
 
-        public virtual DbSet<ChiTiet_DatSan> ChiTiet_DatSan { get; set; }
         public virtual DbSet<DatSan> DatSan { get; set; }
         public virtual DbSet<GioDat> GioDat { get; set; }
+        public virtual DbSet<HinhThucThanhToan> HinhThucThanhToan { get; set; }
+        public virtual DbSet<HoaDon> HoaDon { get; set; }
         public virtual DbSet<LoaiSan> LoaiSan { get; set; }
         public virtual DbSet<San> San { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<DatSan>()
-                .HasMany(e => e.ChiTiet_DatSan)
-                .WithRequired(e => e.DatSan)
-                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<HoaDon>()
+                .Property(e => e.TongTien)
+                .HasPrecision(19, 4);
 
             modelBuilder.Entity<LoaiSan>()
                 .HasMany(e => e.San)
@@ -33,11 +33,6 @@ namespace WebsiteDatSan.Models
             modelBuilder.Entity<San>()
                 .Property(e => e.GiaTien)
                 .HasPrecision(19, 4);
-
-            modelBuilder.Entity<San>()
-                .HasMany(e => e.ChiTiet_DatSan)
-                .WithRequired(e => e.San)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<San>()
                 .HasMany(e => e.GioDat)

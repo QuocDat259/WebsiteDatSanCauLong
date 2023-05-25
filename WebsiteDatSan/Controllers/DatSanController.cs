@@ -40,6 +40,10 @@ namespace WebsiteDatSan.Controllers
             // Lấy UserName của người đăng nhập
             var userManager = new UserManager<AspNetUsers>(new UserStore<AspNetUsers>(new ApplicationDbContext()));
             var user = userManager.FindById(userId);
+            if(user == null)
+            {
+                return RedirectToAction("Login","Account");
+            }
             string userName = user.UserName;
 
             // Lấy ngày đặt hiện tại

@@ -6,31 +6,21 @@ namespace WebsiteDatSan.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("GioDat")]
-    public partial class GioDat
+    [Table("HinhThucThanhToan")]
+    public partial class HinhThucThanhToan
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public GioDat()
+        public HinhThucThanhToan()
         {
             HoaDon = new HashSet<HoaDon>();
         }
 
         [Key]
-        public int MaGioDat { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int MaHinhTHuc { get; set; }
 
-        public TimeSpan? GioBatDau { get; set; }
-
-        public TimeSpan? GioKetThuc { get; set; }
-
-        public int? idsan { get; set; }
-
-        public bool? TrangThai { get; set; }
-
-        public int? MaDat { get; set; }
-
-        public virtual DatSan DatSan { get; set; }
-
-        public virtual San San { get; set; }
+        [StringLength(150)]
+        public string TenHinhThuc { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HoaDon> HoaDon { get; set; }

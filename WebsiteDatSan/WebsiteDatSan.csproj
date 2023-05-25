@@ -193,9 +193,10 @@
     <Compile Include="Models\AspNetUserClaims.cs" />
     <Compile Include="Models\AspNetUserLogins.cs" />
     <Compile Include="Models\AspNetUsers.cs" />
-    <Compile Include="Models\ChiTiet_DatSan.cs" />
     <Compile Include="Models\DatSan.cs" />
     <Compile Include="Models\GioDat.cs" />
+    <Compile Include="Models\HinhThucThanhToan.cs" />
+    <Compile Include="Models\HoaDon.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LoaiSan.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
