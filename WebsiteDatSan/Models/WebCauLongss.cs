@@ -12,7 +12,6 @@ namespace WebsiteDatSan.Models
         {
         }
 
-        public virtual DbSet<DatSan> DatSan { get; set; }
         public virtual DbSet<GioDat> GioDat { get; set; }
         public virtual DbSet<HinhThucThanhToan> HinhThucThanhToan { get; set; }
         public virtual DbSet<HoaDon> HoaDon { get; set; }

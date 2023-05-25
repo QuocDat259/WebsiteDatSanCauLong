@@ -12,7 +12,8 @@ namespace WebsiteDatSan.Models
         [Key]
         public int MaHoaDon { get; set; }
 
-        public int? MaDat { get; set; }
+        [StringLength(128)]
+        public string id { get; set; }
 
         public int? MaSan { get; set; }
 
@@ -25,7 +26,7 @@ namespace WebsiteDatSan.Models
 
         public bool? TrangThai { get; set; }
 
-        public virtual DatSan DatSan { get; set; }
+        public DateTime? NgayDat { get; set; }
 
         public virtual GioDat GioDat { get; set; }
 

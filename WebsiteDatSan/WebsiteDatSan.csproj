@@ -181,6 +181,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DatSanController.cs" />
     <Compile Include="Controllers\GioDatController.cs" />
+    <Compile Include="Controllers\HoaDonController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SansController.cs" />
@@ -193,7 +194,6 @@
     <Compile Include="Models\AspNetUserClaims.cs" />
     <Compile Include="Models\AspNetUserLogins.cs" />
     <Compile Include="Models\AspNetUsers.cs" />
-    <Compile Include="Models\DatSan.cs" />
     <Compile Include="Models\GioDat.cs" />
     <Compile Include="Models\HinhThucThanhToan.cs" />
     <Compile Include="Models\HoaDon.cs" />
@@ -2141,6 +2141,7 @@
     <Content Include="Views\Sans\Index.cshtml" />
     <Content Include="Views\DatSan\DatSan.cshtml" />
     <Content Include="Views\DatSan\ConfirmPaymentClient.cshtml" />
+    <Content Include="Views\HoaDon\HoaDon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

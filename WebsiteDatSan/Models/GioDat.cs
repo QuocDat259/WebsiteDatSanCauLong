@@ -26,10 +26,6 @@ namespace WebsiteDatSan.Models
 
         public bool? TrangThai { get; set; }
 
-        public int? MaDat { get; set; }
-
-        public virtual DatSan DatSan { get; set; }
-
         public virtual San San { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

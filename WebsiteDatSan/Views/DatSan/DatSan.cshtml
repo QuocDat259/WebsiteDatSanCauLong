@@ -1,39 +1,60 @@
-﻿@model WebsiteDatSan.Models.GioDat
+﻿@model WebsiteDatSan.Models.HoaDon
 
 @{
-    ViewBag.Title = "DatSan";
+    ViewBag.Title = "Đặt Sân";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Đặt Sân</h2>
 
-<p>
-    <strong>Người đăng nhập:</strong> @((string)ViewBag.UserName)
-</p>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
 
-<p>
-    <strong>Giờ Đặt:</strong> @Model.GioBatDau - @Model.GioKetThuc
-</p>
+<div class="form-horizontal">
+    <h4>Thông tin đặt sân</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-<p>
-    <strong>Sân:</strong> @((string)ViewBag.San.TenSan)
-</p>
+    <div class="form-group">
+        @Html.LabelFor(model => model.San.TenSan, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="submit" value="@ViewBag.San" />
+            @Html.ValidationMessageFor(model => model.San.TenSan, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.TongTien, "Tổng tiền", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="submit"  value="@ViewBag.GiaTien" />
+            @Html.ValidationMessageFor(model => model.TongTien, "", new { @class = "text-danger" })
+        </div>
+    </div>
 
-<p>
-    <strong>Địa chỉ:</strong> @((string)ViewBag.San.DiaChi)
-</p>
+    <div class="form-group">
+        @Html.LabelFor(model => model.NgayDat, "Ngày đặt", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.NgayDat, new { @class = "form-control", @readonly = "readonly" })
+            @Html.ValidationMessageFor(model => model.NgayDat, "", new { @class = "text-danger" })
+        </div>
+    </div>
 
-<p>
-    <strong>Ngày Đặt:</strong> @((DateTime)ViewBag.NgayDat)
-</p>
+    @*<div class="form-group">
+        @Html.LabelFor(model => model.MahinhThuc, "Hình thức thanh toán", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("MaHinhThuc", ViewBag.HinhThuc as SelectList, "-- Chọn hình thức thanh toán --", htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.MahinhThuc, "", new { @class = "text-danger" })
+        </div>
+    </div>*@
 
-<p>
-    <strong>Giá Tiền:</strong> @ViewBag.GiaTien
-</p>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Đặt" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
 
-<td>
-    <button onclick="location.href='@Url.Action("Payment", "DatSan")'">Thanh Toán</button>
-
-</td>
-
-@Html.ActionLink("Back to List", "Index")
+<div>
+    @Html.ActionLink("Quay lại", "Index", "Home")
+</div>

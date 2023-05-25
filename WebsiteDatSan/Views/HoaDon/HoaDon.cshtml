@@ -1,0 +1,68 @@
+﻿@model IEnumerable<WebsiteDatSan.Models.HoaDon>
+
+@{
+    ViewBag.Title = "HoaDon";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>HoaDon</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GioDat.MaGioDat)
+        </th>
+        <th>
+            @Html.DropDownList("MaHinhThuc", null, "Chọn hình thức", htmlAttributes: new { @class = "form-control" })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.San.TenSan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TongTien)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayDat)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GioDat.GioBatDau)-@Html.DisplayFor(modelItem => item.GioDat.GioKetThuc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HinhThucThanhToan.TenHinhThuc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.San.TenSan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TongTien)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrangThai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayDat)
+        </td>
+        <td>
+            <button onclick="location.href='@Url.Action("Payment", "DatSan")'">Thanh Toán</button>
+        </td>
+    </tr>
+}
+
+</table>
