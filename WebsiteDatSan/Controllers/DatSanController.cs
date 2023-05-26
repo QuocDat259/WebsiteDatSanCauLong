@@ -55,6 +55,9 @@ namespace WebsiteDatSan.Controllers
             // Lấy giá tiền từ bảng San
             decimal? giaTien = san.GiaTien;
 
+            // Lấy danh sách hình thức thanh toán từ cơ sở dữ liệu
+            var hinhThucList = db.HinhThucThanhToan.ToList();
+
             // Truyền thông tin người đăng nhập, GioDat, San và UserName cho view
             ViewBag.UserId = userId;
             ViewBag.GioDat = gioDat;
@@ -63,11 +66,15 @@ namespace WebsiteDatSan.Controllers
             ViewBag.NgayDat = ngayDat;
             ViewBag.GiaTien = giaTien.HasValue ? giaTien.Value : 0m;
             ViewBag.id = id;
+            ViewBag.GioBatDau = gioDat.GioBatDau;
+            ViewBag.GioKetThuc = gioDat.GioKetThuc;
+            ViewBag.GiaTien = san.GiaTien;
+            ViewBag.HinhThuc = new SelectList(hinhThucList, "MaHinhThuc", "TenHinhThuc");
             return View(hoaDon);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult DatSan([Bind(Include = "MaHoaDon,MaSan,MaGioDat,MahinhThuc,TongTien,NgayDat")] HoaDon hoadon, int id, string mahinhthuc)
+        public ActionResult DatSan([Bind(Include = "MaHoaDon,MaSan,MaGioDat,MahinhThuc,TongTien,NgayDat")] HoaDon hoadon, int id, int? mahinhthuc)
         {
             if (ModelState.IsValid)
             {
@@ -87,19 +94,20 @@ namespace WebsiteDatSan.Controllers
                     hoadon.MaGioDat = gioDat.MaGioDat;
                 }
 
-                // Chuyển đổi kiểu dữ liệu của MahinhThuc từ string sang int?
-                int? mahinhthucValue = null;
-                if (!string.IsNullOrEmpty(mahinhthuc))
-                {
-                    int parsedMahinhthuc;
-                    if (int.TryParse(mahinhthuc, out parsedMahinhthuc))
-                    {
-                        mahinhthucValue = parsedMahinhthuc;
-                    }
-                }
+                // Lấy thông tin từ bảng San
+                var san = db.San.FirstOrDefault(s => s.MaSan == hoadon.MaSan);
 
-                // Gán MahinhThuc vào HoaDon
-                hoadon.MahinhThuc = mahinhthucValue;
+                // Lấy giá tiền từ bảng San
+                decimal? giaTien = san.GiaTien;
+
+                // Gán giá tiền cho đối tượng HoaDon
+                hoadon.TongTien = giaTien.HasValue ? giaTien.Value : 0m;
+
+                // Lấy danh sách hình thức thanh toán
+                var hinhThucList = db.HinhThucThanhToan.ToList();
+
+                // Gán danh sách hình thức thanh toán vào ViewBag
+                ViewBag.HinhThuc = new SelectList(hinhThucList, "MaHinhThuc", "TenHinhThuc", mahinhthuc);
 
                 // Lưu HoaDon vào cơ sở dữ liệu
                 db.HoaDon.Add(hoadon);
@@ -107,11 +115,13 @@ namespace WebsiteDatSan.Controllers
 
                 return RedirectToAction("Index", "Home");
             }
+
             // Nếu dữ liệu không hợp lệ, truyền các thông tin cần thiết cho view
             ViewBag.HinhThuc = new SelectList(db.HinhThucThanhToan, "MaHinhThuc", "TenHinhThuc", hoadon.HinhThucThanhToan);
 
             return View(hoadon);
         }
+
 
 
 
