@@ -11,64 +11,80 @@
 {
     @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
-    <h4>Thông tin đặt sân</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-horizontal">
+        <h4>Thông tin đặt sân</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    <div class="form-group">
-        @Html.Label("UserName", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <span>@ViewBag.UserName</span>
+        <div class="form-group">
+            @Html.Label("UserName", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <span>@ViewBag.UserName</span>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.San.TenSan, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <span>@ViewBag.San</span>
-            @Html.ValidationMessageFor(model => model.San.TenSan, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.San.TenSan, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <span>@ViewBag.San</span>
+                @Html.ValidationMessageFor(model => model.San.TenSan, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.Label("Thời gian", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <span class="form-control">@ViewBag.GioBatDau - @ViewBag.GioKetThuc</span>
+        <div class="form-group">
+            @Html.Label("Thời gian", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <span class="form-control">@ViewBag.GioBatDau - @ViewBag.GioKetThuc</span>
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.TongTien, "Tổng tiền", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <span>@ViewBag.GiaTien</span>
-            @Html.ValidationMessageFor(model => model.TongTien, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.TongTien, "Tổng tiền", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <span>@ViewBag.GiaTien</span>
+                @Html.ValidationMessageFor(model => model.TongTien, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.NgayDat, "Ngày đặt", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <span>@ViewBag.NgayDat</span>
-            @Html.ValidationMessageFor(model => model.NgayDat, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.NgayDat, "Ngày đặt", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <span>@ViewBag.NgayDat</span>
+                @Html.ValidationMessageFor(model => model.NgayDat, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.MahinhThuc, "Hình thức thanh toán", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.MahinhThuc, ViewBag.HinhThuc as SelectList, "-- Chọn hình thức thanh toán --", htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.MahinhThuc, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.MahinhThuc, "Hình thức thanh toán", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MahinhThuc", ViewBag.HinhThuc as SelectList, "-- Chọn hình thức thanh toán --", htmlAttributes: new { @class = "form-control", id = "MahinhThuc" })
+                @Html.ValidationMessageFor(model => model.MahinhThuc, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Đặt" class="btn btn-default" />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Đặt" class="btn btn-default" />
+            </div>
         </div>
     </div>
-</div>
 }
 
 <div>
     @Html.ActionLink("Quay lại", "Index", "Home")
 </div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $('#MahinhThuc').change(function() {
+                var selectedOption = $(this).val(); // Thêm dòng này để lấy giá trị được chọn trong dropdown list
+                if (selectedOption === '2') {
+                    $('form').attr('action', '@Url.Action("Payment", "DatSan")');
+                } else {
+                    $('form').removeAttr('action');
+                }
+            });
+        });
+    </script>
+}
+

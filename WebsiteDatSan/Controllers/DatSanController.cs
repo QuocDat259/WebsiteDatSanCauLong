@@ -85,6 +85,7 @@ namespace WebsiteDatSan.Controllers
                 // Gán ID và các thông tin khác vào đối tượng HoaDon
                 hoadon.id = currentUserId;
                 hoadon.NgayDat = ngayDat;
+                hoadon.MahinhThuc = mahinhthuc.Value;
 
                 // Lấy thông tin GioDat từ cơ sở dữ liệu
                 GioDat gioDat = db.GioDat.Find(id);
@@ -107,7 +108,7 @@ namespace WebsiteDatSan.Controllers
                 var hinhThucList = db.HinhThucThanhToan.ToList();
 
                 // Gán danh sách hình thức thanh toán vào ViewBag
-                ViewBag.HinhThuc = new SelectList(hinhThucList, "MaHinhThuc", "TenHinhThuc", mahinhthuc);
+                ViewBag.HinhThuc = new SelectList(hinhThucList, "MaHinhThuc", "TenHinhThuc", hoadon.MahinhThuc);
 
                 // Lưu HoaDon vào cơ sở dữ liệu
                 db.HoaDon.Add(hoadon);
@@ -117,10 +118,11 @@ namespace WebsiteDatSan.Controllers
             }
 
             // Nếu dữ liệu không hợp lệ, truyền các thông tin cần thiết cho view
-            ViewBag.HinhThuc = new SelectList(db.HinhThucThanhToan, "MaHinhThuc", "TenHinhThuc", hoadon.HinhThucThanhToan);
+            ViewBag.HinhThuc = new SelectList(db.HinhThucThanhToan, "MaHinhThuc", "TenHinhThuc", hoadon.MahinhThuc);
 
             return View(hoadon);
         }
+
 
 
 
@@ -136,7 +138,7 @@ namespace WebsiteDatSan.Controllers
             string returnUrl = "https://localhost:44334/DatSan/ConfirmPaymentClient";
             string notifyurl = "https://4c8d-2001-ee0-5045-50-58c1-b2ec-3123-740d.ap.ngrok.io/Home/SavePayment"; //lưu ý: notifyurl không được sử dụng localhost, có thể sử dụng ngrok để public localhost trong quá trình test
 
-            string amount = "1000";
+            string amount = "80000";
             string orderid = DateTime.Now.Ticks.ToString(); //mã đơn hàng
             string requestId = DateTime.Now.Ticks.ToString();
             string extraData = "";
