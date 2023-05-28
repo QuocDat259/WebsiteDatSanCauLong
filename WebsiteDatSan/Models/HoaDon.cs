@@ -10,7 +10,7 @@ namespace WebsiteDatSan.Models
     public partial class HoaDon
     {
         [Key]
-        public int MaHoaDon { get; set; }
+        public string MaHoaDon { get; set; }
 
         [StringLength(128)]
         public string id { get; set; }

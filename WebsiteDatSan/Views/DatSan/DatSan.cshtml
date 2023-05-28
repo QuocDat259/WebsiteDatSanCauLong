@@ -7,7 +7,7 @@
 
 <h2>Đặt Sân</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("DatSan", "DatSan", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
@@ -15,6 +15,8 @@
         <h4>Thông tin đặt sân</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <!-- Các trường thông tin đặt sân -->
 
         <div class="form-group">
             @Html.Label("UserName", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -56,11 +58,12 @@
         <div class="form-group">
             @Html.LabelFor(model => model.MahinhThuc, "Hình thức thanh toán", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("MahinhThuc", ViewBag.HinhThuc as SelectList, "-- Chọn hình thức thanh toán --", htmlAttributes: new { @class = "form-control", id = "MahinhThuc" })
+                @Html.DropDownListFor(model => model.MahinhThuc, ViewBag.HinhThuc as SelectList, "-- Chọn hình thức thanh toán --", htmlAttributes: new { @class = "form-control", id = "MahinhThuc" })
                 @Html.ValidationMessageFor(model => model.MahinhThuc, "", new { @class = "text-danger" })
             </div>
         </div>
 
+        @Html.HiddenFor(model => model.MahinhThuc)
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Đặt" class="btn btn-default" />
@@ -73,18 +76,19 @@
     @Html.ActionLink("Quay lại", "Index", "Home")
 </div>
 
+@*<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 @section Scripts {
     <script>
         $(document).ready(function() {
             $('#MahinhThuc').change(function() {
-                var selectedOption = $(this).val(); // Thêm dòng này để lấy giá trị được chọn trong dropdown list
+                var selectedOption = $(this).val();
                 if (selectedOption === '2') {
-                    $('form').attr('action', '@Url.Action("Payment", "DatSan")');
+                    var paymentUrl = '@Url.Action("Payment", "DatSan")';
+                    $('form').attr('action', paymentUrl);
                 } else {
                     $('form').removeAttr('action');
                 }
             });
         });
-    </script>
+    </script>*@
 }
-

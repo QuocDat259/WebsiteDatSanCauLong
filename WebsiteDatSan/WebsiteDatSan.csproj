@@ -2148,8 +2148,8 @@
     <Content Include="Views\Sans\Edit.cshtml" />
     <Content Include="Views\Sans\Index.cshtml" />
     <Content Include="Views\DatSan\DatSan.cshtml" />
-    <Content Include="Views\DatSan\ConfirmPaymentClient.cshtml" />
     <Content Include="Views\HoaDon\HoaDon.cshtml" />
+    <Content Include="Views\DatSan\ConfirmPaymentClient.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
