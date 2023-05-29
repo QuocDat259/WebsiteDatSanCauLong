@@ -6,12 +6,50 @@
 }
 
 <style>
-    .het-san {
-        background-color: #ffcccc;
+    .table {
+        width: 100%;
+        border-collapse: collapse;
     }
-</style>
 
-<h2>Index</h2>
+        .table th {
+            background-color: #f2f2f2;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .table td {
+            padding: 8px;
+        }
+
+        .table .text-success {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .table .text-danger {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+    .btn-dat-san {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        margin: 2px 2px;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+        .btn-dat-san.disabled {
+            background-color: #ffcccc;
+            cursor: not-allowed;
+        }
+</style>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -34,16 +72,23 @@
                 @Html.DisplayFor(modelItem => item.GioKetThuc)
             </td>
             <td>
-                @((item.TrangThai == true) ? "Còn" : "Hết")
+                @if (item.TrangThai == true)
+                {
+                    <span class="text-success">Còn</span>
+                }
+                else
+                {
+                    <span class="text-danger">Hết</span>
+                }
             </td>
             <td>
                 @if (item.TrangThai == true)
                 {
-                    <button type="button" onclick="location.href='@Url.Action("DatSan","DatSan", new { id = item.MaGioDat })'">Đặt sân</button>
+                    <a href="@Url.Action("DatSan", "DatSan", new { id = item.MaGioDat })" class="btn-dat-san">Đặt sân</a>
                 }
                 else
                 {
-                    <button type="button" disabled style="background-color: #ffcccc;">Đặt sân</button>
+                    <button type="button" disabled class="btn-dat-san disabled">Đặt sân</button>
                 }
             </td>
         </tr>

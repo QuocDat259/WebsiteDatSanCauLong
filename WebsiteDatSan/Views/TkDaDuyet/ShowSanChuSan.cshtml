@@ -5,60 +5,59 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ShowSanChuSan</h2>
+<style>
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+        .table th,
+        .table td {
+            padding: 8px;
+            text-align: center;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .table td {
+            border: 1px solid #ddd;
+        }
+
+        .table .highlight {
+            background-color: #ffcccc;
+        }
+</style>
+
+<h2>Các sân của chủ sân</h2>
 
 <table class="table">
     <tr>
-@*        <th>
-            @Html.DisplayNameFor(model => model.LoaiSan.TenLoaiSan)
-        </th>*@
-        <th>
-            @Html.DisplayNameFor(model => model.TenSan)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DiaChi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GiaTien)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TrangThai)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IdUser)
-        </th>
+        <th>Tên sân</th>
+        <th>Địa chỉ</th>
+        <th>Giá tiền</th>
+        <th>Trạng thái</th>
+        <th>Mã người dùng</th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        @*        <td>
-            @Html.DisplayFor(modelItem => item.LoaiSan.TenLoaiSan)
-        </td>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.TenSan)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DiaChi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GiaTien)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TrangThai)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdUser)
-        </td>
-        <td>
-            <a>  @Html.ActionLink("xem", "ShowGioDats", new { id = item.MaSan })</a>
-        </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.TenSan)</td>
+            <td>@Html.DisplayFor(modelItem => item.DiaChi)</td>
+            <td>@Html.DisplayFor(modelItem => item.GiaTien)</td>
+            <td>@Html.DisplayFor(modelItem => item.TrangThai)</td>
+            <td>@Html.DisplayFor(modelItem => item.IdUser)</td>
+            <td>
+                <a>@Html.ActionLink("Xem các khung giờ", "ShowGioDats", new { id = item.MaSan })</a>  |  
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.MaSan }) 
 
-        <td>
-            @Html.ActionLink("Details", "Details", new { id = item.MaSan }) |
-            @Html.ActionLink("Back to List", "Index")
-        </td>
-    </tr>
-}
-
+            </td>
+        </tr>
+    }
 </table>
+@Html.ActionLink("Back to List", "Index")

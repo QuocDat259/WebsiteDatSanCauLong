@@ -5,6 +5,45 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<style>
+    .form-horizontal {
+        margin-top: 20px;
+    }
+
+        .form-horizontal h2 {
+            margin-bottom: 20px;
+            color: #337ab7;
+        }
+
+        .form-horizontal h4 {
+            margin-bottom: 20px;
+            color: #337ab7;
+        }
+
+        .form-horizontal .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-horizontal .control-label {
+            font-weight: bold;
+            color: #337ab7;
+        }
+
+        .form-horizontal .form-control {
+            border-radius: 0;
+        }
+
+        .form-horizontal .btn-default {
+            background-color: #337ab7;
+            color: #fff;
+            border-radius: 0;
+        }
+
+    .text-danger {
+        color: #a94442;
+    }
+</style>
+
 <h2>Đặt Sân</h2>
 
 @using (Html.BeginForm("DatSan", "DatSan", FormMethod.Post))
@@ -19,13 +58,13 @@
         <!-- Các trường thông tin đặt sân -->
 
         <div class="form-group">
-            @Html.Label("UserName", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Tên người dùng", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <span>@ViewBag.UserName</span>
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.San.TenSan, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Tên sân", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <span>@ViewBag.San</span>
                 @Html.ValidationMessageFor(model => model.San.TenSan, "", new { @class = "text-danger" })
@@ -35,7 +74,7 @@
         <div class="form-group">
             @Html.Label("Thời gian", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <span class="form-control">@ViewBag.GioBatDau - @ViewBag.GioKetThuc</span>
+                <span>@ViewBag.GioBatDau - @ViewBag.GioKetThuc</span>
             </div>
         </div>
 
@@ -75,20 +114,3 @@
 <div>
     @Html.ActionLink("Quay lại", "Index", "Home")
 </div>
-
-@*<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-@section Scripts {
-    <script>
-        $(document).ready(function() {
-            $('#MahinhThuc').change(function() {
-                var selectedOption = $(this).val();
-                if (selectedOption === '2') {
-                    var paymentUrl = '@Url.Action("Payment", "DatSan")';
-                    $('form').attr('action', paymentUrl);
-                } else {
-                    $('form').removeAttr('action');
-                }
-            });
-        });
-    </script>*@
-}

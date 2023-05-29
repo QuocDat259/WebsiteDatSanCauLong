@@ -48,7 +48,7 @@ namespace WebsiteDatSan.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
-            string userName = user.UserName;
+            string userName = user.FullName;
 
             // Lấy ngày đặt hiện tại    
             DateTime ngayDat = DateTime.Now;
@@ -140,6 +140,9 @@ namespace WebsiteDatSan.Controllers
             //request params need to request to MoMo system
             //request params need to request to MoMo system
             var tienthanhtoan = db.HoaDon.FirstOrDefault(n => n.MaHoaDon == order);
+            string[] parts = tienthanhtoan.TongTien.ToString().Split(',');
+            string tien = parts[0];
+
             var userManager = new UserManager<AspNetUsers>(new UserStore<AspNetUsers>(new ApplicationDbContext()));
             var user = userManager.FindById(tienthanhtoan.id);
             string userName = user.FullName;
@@ -147,10 +150,10 @@ namespace WebsiteDatSan.Controllers
             string partnerCode = "MOMOOJOI20210710";
             string accessKey = "iPXneGmrJH0G8FOP";
             string serectkey = "sFcbSGRSJjwGxwhhcEktCHWYUuTuPNDB";
-            string orderInfo = userName + " thanh toán với số tiền " + String.Format("{0:0,0}", tienthanhtoan.TongTien.ToString()) + "VNĐ"; 
+            string orderInfo = userName + " thanh toán đặt sân "; 
             string returnUrl = "https://localhost:44334/DatSan/ConfirmPaymentClient";
             string notifyurl = "https://4c8d-2001-ee0-5045-50-58c1-b2ec-3123-740d.ap.ngrok.io/Home/SavePayment"; //lưu ý: notifyurl không được sử dụng localhost, có thể sử dụng ngrok để public localhost trong quá trình test
-            string amount = "80000";
+            string amount = tien;
             string orderid = order.ToString();
             string requestId = order.ToString();
             string extraData = "";
@@ -195,68 +198,6 @@ namespace WebsiteDatSan.Controllers
 
         }
 
-        //public ActionResult ConfirmPaymentClient()
-        //{
-        //    return View();
-        //}
-        //public ActionResult Payment(string order)
-        //{
-        //    //request params need to request to MoMo system
-        //    var tienthanhtoan = db.HoaDon.FirstOrDefault(n => n.id == order);
-        //    var userManager = new UserManager<AspNetUsers>(new UserStore<AspNetUsers>(new ApplicationDbContext()));
-        //    var user = userManager.FindById(order);
-        //    string userName = user.FullName;
-        //    string endpoint = "https://test-payment.momo.vn/gw_payment/transactionProcessor";
-        //    string partnerCode = "MOMOOJOI20210710";
-        //    string accessKey = "iPXneGmrJH0G8FOP";
-        //    string serectkey = "sFcbSGRSJjwGxwhhcEktCHWYUuTuPNDB";
-        //    string orderInfo = userName + " thanh toán với số tiền " + String.Format("{0:0,0}", tienthanhtoan.TongTien.ToString()) + "VNĐ"; ;
-        //    string returnUrl = "https://localhost:44334/DatSan/ConfirmPaymentClient";
-        //    string notifyurl = "https://4c8d-2001-ee0-5045-50-58c1-b2ec-3123-740d.ap.ngrok.io/Home/SavePayment"; //lưu ý: notifyurl không được sử dụng localhost, có thể sử dụng ngrok để public localhost trong quá trình test
-        //    string amount = "1000";
-        //    string orderid = order;
-        //    string requestId = order;
-        //    string extraData = "";
-
-        //    //Before sign HMAC SHA256 signature
-        //    string rawHash = "partnerCode=" +
-        //        partnerCode + "&accessKey=" +
-        //        accessKey + "&requestId=" +
-        //        requestId + "&amount=" +
-        //        amount + "&orderId=" +
-        //        orderid + "&orderInfo=" +
-        //        orderInfo + "&returnUrl=" +
-        //        returnUrl + "&notifyUrl=" +
-        //        notifyurl + "&extraData=" +
-        //        extraData;
-
-        //    MoMoSecurity crypto = new MoMoSecurity();
-        //    //sign signature SHA256
-        //    string signature = crypto.signSHA256(rawHash, serectkey);
-
-        //    //build body json request
-        //    JObject message = new JObject
-        //    {
-        //        { "partnerCode", partnerCode },
-        //        { "accessKey", accessKey },
-        //        { "requestId", requestId },
-        //        { "amount", amount },
-        //        { "orderId", orderid },
-        //        { "orderInfo", orderInfo },
-        //        { "returnUrl", returnUrl },
-        //        { "notifyUrl", notifyurl },
-        //        { "extraData", extraData },
-        //        { "requestType", "captureMoMoWallet" },
-        //        { "signature", signature }
-
-        //    };
-
-        //    string responseFromMomo = PaymentRequest.sendPaymentRequest(endpoint, message.ToString());
-
-        //    JObject jmessage = JObject.Parse(responseFromMomo);
-
-        //    return Redirect(jmessage.GetValue("payUrl").ToString());
-        //}
         public ActionResult ConfirmPaymentClient(Result result)
         {
             //lấy kết quả Momo trả về và hiển thị thông báo cho người dùng (có thể lấy dữ liệu ở đây cập nhật xuống db)

@@ -59,6 +59,18 @@ namespace WebsiteDatSan.Controllers
                 throw;
             }
         }
+        //public ActionResult Details(int id)
+        //{
+        //    using (var db = new WebCauLongss())
+        //    {
+        //        var hoaDon = db.San.Find(id);
+        //        if (hoaDon == null)
+        //        {
+        //            return HttpNotFound();
+        //        }
+        //        return View(hoaDon);
+        //    }
+        //}
 
     }
 }

@@ -10,6 +10,7 @@ namespace WebsiteDatSan.Models
     public partial class HoaDon
     {
         [Key]
+        [StringLength(450)]
         public string MaHoaDon { get; set; }
 
         [StringLength(128)]
@@ -28,7 +29,7 @@ namespace WebsiteDatSan.Models
 
         public DateTime? NgayDat { get; set; }
 
-        public GioDat GioDat { get; set; }
+        public virtual GioDat GioDat { get; set; }
 
         public virtual HinhThucThanhToan HinhThucThanhToan { get; set; }
 
