@@ -1,31 +1,457 @@
-﻿@{
+﻿<!--<!--@{
     ViewBag.Title = "Home Page";
 }
+@model IEnumerable<WebsiteDatSan.Models.AspNetUsers>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<div id="preloder">
+    <div class="loader"></div>
+</div>-->
+<!-- Header Section End -->
+<!-- Banner -->
+<section class="hero">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="hero__item set-bg" data-setbg="img/R.png">
+                <div class="hero__text">
+                    <span>Sân Cầu Lông SG</span>
+                    <h2>Sân Chơi Tiêu Chuẩn Quốc Tế</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner End -->
+<!-- Giới thiệu -->
+<section class="about">
+    <div class="container">
+        <div class="row d-flex justify-content-center ">
+            <div class="col-lg-4">
+                <img src="~/img/otp.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-4">
+                <div class="content__about">
+                    <h3>Giới thiệu về chúng tôi</h3>
+                    <p>
+                        Chào mừng bạn đến với Cầu Lông SG - trang web hàng đầu trong việc cung cấp dịch vụ cho thuê sân chơi cầu lông tại thành phố SG.
+                        Chúng tôi tự hào mang đến cho bạn không chỉ những sân chơi chất lượng cao mà còn là trải nghiệm hoàn hảo cho môn thể thao yêu thích của bạn.
+                    </p>
+                    <p>
+                        Với Cầu Lông SG, bạn sẽ tìm thấy một loạt các sân cầu lông đẹp, sạch sẽ và tiện nghi, phù hợp với mọi nhu cầu của bạn.
+                        Chúng tôi cam kết đảm bảo môi trường an toàn và thoải mái, đồng thời đáp ứng các tiêu chuẩn chất lượng cao nhất để đảm bảo bạn có trận đấu thú vị và hài lòng.
+                    </p>
+                </div>
+            </div>
+        </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+</section>
+<!-- Giới thiệu End -->
+<!-- banner nghỉ dưỡng -->
+<section class="bn-nghiduong">
+    <div class="container">
+        <div class="title">
+            <h4>Sân Chơi Tiêu Chuẩn Quốc Tế</h4>
+            <h3>Khu vực Thành Phố Hồ Chí Minh</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="content">
+                    <a href="#" target="_blank">
+                        <div class="content-overlay"></div>
+                        <img class="content-image" src="~/img/ThuDuc.jpg">
+                        <div class="content-details fadeIn-top">
+                            <h3>Thủ Đức</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="content">
+                    <a href="#" target="_blank">
+                        <div class="content-overlay"></div>
+                        <img class="content-image" src="~/img/Quan8.jpg">
+                        <div class="content-details fadeIn-top">
+                            <h3>Quận 8</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="content">
+                    <a href="#" target="_blank">
+                        <div class="content-overlay"></div>
+                        <img class="content-image" src="~/img/TanPhu.jpg">
+                        <div class="content-details fadeIn-top">
+                            <h3>Tân Phú</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="content">
+                    <a href="#" target="_blank">
+                        <div class="content-overlay"></div>
+                        <img class="content-image" src="~/img/TanBinh.jpg">
+                        <div class="content-details fadeIn-top">
+                            <h3>Tân Bình</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+</section>-->
+
+<!--@*<section class="cafesanvuon">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 box-text">
+                    <div class="content">
+                        <h3>Cafe sân vườn</h3>
+                        <p>
+                            Lắng nghe âm thanh của gió quyện cùng mùi hương của cỏ cây, ngắm nhìn tia nắng xuyên qua
+                            từng kẽ rặng dừa và mặt hồ xanh ngọc biếc ẩn mình dưới cái nắng chiều lung linh, đó là
+                            cái cảm giác yên bình khi dừng chân nghỉ ngơi tại Cafe Thảo Thiện.
+                        </p>
+                        <p>
+                            Cafe Thảo Thiện được thiết kế ở không gian mở, kết hợp sân vườn, cây cỏ và bóng mát, tầm
+                            nhìn hướng ra những làn nước trong xanh mát dịu của hồ thiên nga, mang lại cảm giác
+                            thanh bình, dễ chịu cho thực khách đến đây thưởng thức ly cafe đậm chất Việt
+                        </p>
+                        <p>
+                            Tạm gác lại công việc, bận rộn nơi thành thị, hãy đến Thảo Thiện để say sưa với hương vị
+                            đắng của cafe, quyện cùng bản hòa tấu của cảnh sắc thiên nhiên đậm chất tình, bạn nhé!
+                        </p>
+                        <p>
+                            Tạm gác lại công việc, bận rộn nơi thành thị, hãy đến Thảo Thiện để say sưa với hương vị
+                            đắng của cafe, quyện cùng bản hòa tấu của cảnh sắc thiên nhiên đậm chất tình, bạn nhé!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6"></div>
+        </div>
+        </div>
+    </section>*@<!---->
+-->
+<!--<!-- ==================cafe sân vườn =================== -->
+<!-- Tìm căn hộ hoàn hảo -->
+<section class="featured spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h2>Tìm sân ngay và trải nghiệm những dịch vụ tốt nhất</h2>
+                </div>
+                <div class="featured__controls">
+                    <ul>
+                        <li data-mixitup-control class="active" data-filter="*">Tất Cả</li>
+                        <li data-mixitup-control data-filter=".thuDuc">Thủ Đức</li>
+                        <li data-mixitup-control data-filter=".quan8">Quận 8</li>
+                        <li data-mixitup-control data-filter=".tanPhu">Tân Phú</li>
+                        <li data-mixitup-control data-filter=".tanBinh">Tân Bình</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+       
+<div class="row featured__filter">
+  
+    @Html.Action("index", "Sans");  
+   
     </div>
-</div>
+        </div>
+    </section>
+    <!-- Tìm căn hộ hoàn hảo 
+    <!-- Blog Section Begin -->
+    <section class="from-blog spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title from-blog__title">
+                        <h2>Trò chơi giải trí</h2>
+                        <p class="mt-4 w-75 mx-auto">
+                            Bên cạnh cảnh sắc, ẩm thực và nơi nghỉ dưỡng lý tưởng, Thảo Thiện
+                            Garden còn thu hút khách
+                            du lịch bởi những hoạt động cực hấp dẫn, giúp quý khách trải nghiệm thư giãn từng phút giây
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="play">
+                <ul class="nav nav-pills row" id="pills-tab" role="tablist">
+                    <li class="nav-item col-lg-3">
+                        <a class="nav-link active" id="one" data-toggle="pill" href="#pills-one" aria-selected="true">
+                            <div class="content">
+                                <div class="content-overlay"></div>
+                                <div class="box">
+                                    <img src="~/img/tembuilding.png" alt="">
+                                    <p>Team Building</p>
+                                </div>
+                                <div class="content-details fadeIn-top">
+                                    <h3>Team Building</h3>
+                                    <p>
+                                        Có diện tích hơn 1500m2, đạt tiêu chuẩn quốc gia tích hợp hồ bơi trẻ em với những
+                                        hoạt động vui chơi giải trí dưới nước. Thích hợp giải nhiệt những dịp cuối tuần
+                                        cho gia đình và các bé
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item col-lg-3">
+                        <a class="nav-link" id="two" data-toggle="pill" href="#pills-two" aria-selected="false">
+                            <div class="content">
+                                <div class="content-overlay"></div>
+                                <div class="box">
+                                    <img src="~/img/camtrai.png" alt="">
+                                    <p>Cắm Trại</p>
+                                </div>
+                                <div class="content-details fadeIn-top">
+                                    <h3>Team Building</h3>
+                                    <p>
+                                        Có diện tích hơn 1500m2, đạt tiêu chuẩn quốc gia tích hợp hồ bơi trẻ em với những
+                                        hoạt động vui chơi giải trí dưới nước. Thích hợp giải nhiệt những dịp cuối tuần
+                                        cho gia đình và các bé
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item col-lg-3">
+                        <a class="nav-link" id="three" data-toggle="pill" href="#pills-three" aria-selected="false">
+                            <div class="content">
+                                <div class="content-overlay"></div>
+                                <div class="box">
+                                    <img src="~/img/trochoi.png" alt="">
+                                    <p>Trò chơi cảm giác mạnh</p>
+                                </div>
+                                <div class="content-details fadeIn-top">
+                                    <h3>Team Building</h3>
+                                    <p>
+                                        Có diện tích hơn 1500m2, đạt tiêu chuẩn quốc gia tích hợp hồ bơi trẻ em với những
+                                        hoạt động vui chơi giải trí dưới nước. Thích hợp giải nhiệt những dịp cuối tuần
+                                        cho gia đình và các bé
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item col-lg-3">
+                        <a class="nav-link" id="four" data-toggle="pill" href="#pills-four" aria-selected="false">
+                            <div class="content">
+                                <div class="content-overlay"></div>
+                                <div class="box">
+                                    <img src="~/img/hoboi.png" alt="">
+                                    <p>Hồ Bơi</p>
+                                </div>
+                                <div class="content-details fadeIn-top">
+                                    <h3>Team Building</h3>
+                                    <p>
+                                        Có diện tích hơn 1500m2, đạt tiêu chuẩn quốc gia tích hợp hồ bơi trẻ em với những
+                                        hoạt động vui chơi giải trí dưới nước. Thích hợp giải nhiệt những dịp cuối tuần
+                                        cho gia đình và các bé
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>   
+                </ul>
+         </div>
+    </div>
+    <!-- ================================================ -->
+    <div class="tab-content" id="pills-tabContent">
+
+        <div class="tab-pane fade show active" id="pills-one" aria-labelledby="one">
+            <div class="banner5__slider owl-carousel img-bn-slider">
+                <img src="~/img/bn-play.png" alt="">
+                <img src="~/img/bn-play.png" alt="">
+            </div>
+        </div>
+        <div class="tab-pane fade" id="pills-two" aria-labelledby="two">
+            <div class="banner5__slider owl-carousel img-bn-slider">
+                <img src="~/img/bn-play.png" alt="">
+                <img src="~/img/bn-play.png" alt="">
+            </div>
+        </div>
+        <div class="tab-pane fade" id="pills-three" aria-labelledby="three">
+            <div class="banner5__slider owl-carousel img-bn-slider">
+                <img src="~/img/bn-play.png" alt="">
+                <img src="~/img/bn-play.png" alt="">
+            </div>
+        </div>
+        <div class="tab-pane fade" id="pills-four" aria-labelledby="four">
+            <div class="banner5__slider owl-carousel img-bn-slider">
+                <img src="~/img/bn-play.png" alt="">
+                <img src="~/img/bn-play.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- ================================================ -->
+    </section>
+     @*Blog Section End*@ 
+     @*==================ẩm thực ===================*@ 
+    <section class="amthuc about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <img src="~/img/bn-trainghiem.png" class="img-fluid w-100 m-auto" alt="">
+                </div>
+                <div class="col-lg-6">
+                    <div class="content__about">
+                        <h3>Trải nghiệm tour thực tế</h3>
+                        <p>
+                            Hãy tạm gác lại âu lo nơi thành thị xô bồ để khám phá ngay cuộc sống bình dị với trải nghiệm
+                            mới lạ: 1 ngày làm nông thực tế ngay tại Thảo Thiện Garden. Bạn đã sẵn sàng chưa nào?
+                        </p>
+                        <div class="content-trainghiem">
+                            <div class="d-flex align-items-center">
+                                <img src="~/img/check.png" alt="">
+                                <div class="text">
+                                    <h4>Vườn rau sạch</h4>
+                                    <p>
+                                        Trải nghiệm một ngày làm người nông dân tại vườn rau Thảo Thiện Garden.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <img src="~/img/check.png" alt="">
+                                <div class="text">
+                                    <h4> Ao bắt cá</h4>
+                                    <p>
+                                        Trải nghiệm cuộc sống của người miền Tây với hoạt động Ao bắt cá tại Thảo Thiện
+                                        Garden.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <img src="~/img/check.png" alt="">
+                                <div class="text">
+                                    <h4>Chợ đồng quê</h4>
+                                    <p>
+                                        Trải nghiệm các món ăn dân dã đậm chất miền quê tại Thảo Thiện Garden.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <img src="~/img/check.png" alt="">
+                                <div class="text">
+                                    <h4>Chèo thuyền sông lười</h4>
+                                    <p>
+                                        Trải nghiệm chèo thuyền trên sông lười, khám phá vườn trái cây tại Thảo Thiện
+                                        Garden.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <img src="~/img/check.png" alt="">
+                                <div class="text">
+                                    <h4>Trổ tài làm bánh cùng bé</h4>
+                                    <p>
+                                        Trải nghiệm một buổi ngoại khoá làm bánh để giúp bé trở thành một người khéo
+                                        léo, tự lập.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <!-- ==================ẩm thực =================== -->
+    <!-- =================video======================== --><!---->-->
+    <!---->@*<section class="bg-video">
+            <img src="~/img/video.png" class="img-fluid" alt="">
+        </section>*@-->
+    <!-- =================video======================== -->
+    <!-- ================feedback====================== -->
+    <section class="testimonial">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 d-none d-lg-block">
+                    <ol class="carousel-indicators tabs">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
+                            <figure>
+                                <img src="~/img/fb1.jpg" class="img-fluid" alt="">
+                            </figure>
+                        </li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1">
+                            <figure>
+                                <img src="~/img/fb2.jpg" class="img-fluid" alt="">
+                            </figure>
+                        </li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2">
+                            <figure>
+                                <img src="~/img/fb3.jpg" class="img-fluid" alt="">
+                            </figure>
+                        </li>
+                    </ol>
+                </div>
+                <div class="col-lg-6 d-flex justify-content-center align-items-center">
+                    <div id="carouselExampleIndicators" data-interval="false" class="carousel slide"
+                         data-ride="carousel">
+                        <h1>Khách hàng nói gì về chúng tôi?</h1>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="rating">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                                <div class="quote-wrapper">
+                                    <p>
+                                        Một buổi họp mặt với bộ phận kinh doanh thật ý nghĩa tại nhà hàng Thải Thiện
+                                        Garden.
+                                    </p>
+                                    <h3>Chị Mai Linh</h3>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="rating">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                                <div class="quote-wrapper">
+                                    <p>
+                                        Một buổi họp mặt với bộ phận kinh doanh thật ý nghĩa tại nhà hàng Thải Thiện
+                                        Garden.
+                                    </p>
+                                    <h3>Chị Vương Kiều</h3>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="rating">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                                <div class="quote-wrapper">
+                                    <p>
+                                        Một buổi họp mặt với bộ phận kinh doanh thật ý nghĩa tại nhà hàng Thải Thiện
+                                        Garden.
+                                    </p>
+                                    <h3>Chị Mai Linh</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <ol class="carousel-indicators indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

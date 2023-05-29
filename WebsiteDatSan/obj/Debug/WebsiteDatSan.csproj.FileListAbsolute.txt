@@ -106,3 +106,7 @@ D:\DACS\WebsiteDatSan\WebsiteDatSan\bin\Microsoft.CodeDom.Providers.DotNetCompil
 D:\DACS\WebsiteDatSan\WebsiteDatSan\obj\Debug\WebsiteDatSan.csproj.CopyComplete
 D:\DACS\WebsiteDatSan\WebsiteDatSan\obj\Debug\WebsiteDatSan.dll
 D:\DACS\WebsiteDatSan\WebsiteDatSan\obj\Debug\WebsiteDatSan.pdb
+D:\DACS\WebsiteDatSan\WebsiteDatSan\bin\Flurl.dll
+D:\DACS\WebsiteDatSan\WebsiteDatSan\bin\Flurl.Http.dll
+D:\DACS\WebsiteDatSan\WebsiteDatSan\bin\Flurl.xml
+D:\DACS\WebsiteDatSan\WebsiteDatSan\bin\Flurl.Http.xml

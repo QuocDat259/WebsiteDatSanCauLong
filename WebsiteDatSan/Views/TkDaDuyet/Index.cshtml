@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<WebsiteDatSan.Models.AspNetUsers>
+@*@{
+        ViewBag.Title = "Index";
+        Layout = /*"~/Views/Shared/_Layout.cshtml";*/ null;
+    }*@
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="our-team section">
+
+    <div class="row team-slider">
+        <div class="swiper-wrapper">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 swiper-slide">
+                    <div class="team-box text-center">
+                        <a href="@Url.Action("Index", "TKDaDuyet", new { id = item.Id })">
+                        </a>
+                        <div>
+                            @Html.ActionLink(item.UserName, "ShowSanChuSan", "TkDaDuyet", new { id = item.Id }, null)
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="swiper-button-wp">
+            <div class="swiper-button-prev swiper-button">
+                <i class="uil uil-angle-left"></i>
+            </div>
+            <div class="swiper-button-next swiper-button">
+                <i class="uil uil-angle-right"></i>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</section>

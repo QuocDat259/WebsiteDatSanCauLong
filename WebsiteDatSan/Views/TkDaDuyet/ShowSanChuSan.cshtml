@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WebsiteDatSan.Models.San>
+
+@{
+    ViewBag.Title = "ShowSanChuSan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+        .table th,
+        .table td {
+            padding: 8px;
+            text-align: center;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .table td {
+            border: 1px solid #ddd;
+        }
+
+        .table .highlight {
+            background-color: #ffcccc;
+        }
+</style>
+
+<h2>Các sân của chủ sân</h2>
+
+<table class="table">
+    <tr>
+        <th>Tên sân</th>
+        <th>Địa chỉ</th>
+        <th>Giá tiền</th>
+        <th>Trạng thái</th>
+        <th>Mã người dùng</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.TenSan)</td>
+            <td>@Html.DisplayFor(modelItem => item.DiaChi)</td>
+            <td>@Html.DisplayFor(modelItem => item.GiaTien)</td>
+            <td>@Html.DisplayFor(modelItem => item.TrangThai)</td>
+            <td>@Html.DisplayFor(modelItem => item.IdUser)</td>
+            <td>
+                <a>@Html.ActionLink("Xem các khung giờ", "ShowGioDats", new { id = item.MaSan })</a>  |  
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.MaSan }) 
+
+            </td>
+        </tr>
+    }
+</table>
+@Html.ActionLink("Back to List", "Index")

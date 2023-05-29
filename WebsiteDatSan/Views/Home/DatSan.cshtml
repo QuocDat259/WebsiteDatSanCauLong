@@ -1,0 +1,35 @@
+﻿@model WebsiteDatSan.Models.DatSan
+@{
+    ViewBag.Title = "DatSan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DatSan</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="row g-3">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        <div class="col-12 col-sm-6">
+            <input class="form-control text-box single-line" data-val="true" data-val-number="The field Sdt must be a number." id="Sdt" name="Sdt" type="text" value="" placeholder="Tien">
+            @Html.ValidationMessageFor(model => model.SoTien, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-12 col-sm-6">
+            <input class="form-control text-box single-line" id="Ngaydat" name="Ngaydat" type="datetime" value="" placeholder="Ngày đặt">
+            @Html.ValidationMessageFor(model => model.NgayDat, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-12 col-sm-6">
+            <input class="form-control text-box single-line" id="id" name="id" type="text" value="@ViewBag.Id " placeholder="Id" >
+            @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-12 col-sm-6">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Đặt Lịch" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

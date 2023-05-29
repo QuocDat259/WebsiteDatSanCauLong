@@ -12,7 +12,8 @@ namespace WebsiteDatSan.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public San()
         {
-            ChiTiet_DatSan = new HashSet<ChiTiet_DatSan>();
+            GioDat = new HashSet<GioDat>();
+            HoaDon = new HashSet<HoaDon>();
         }
 
         [Key]
@@ -24,18 +25,21 @@ namespace WebsiteDatSan.Models
         public string TenSan { get; set; }
 
         [StringLength(150)]
-        public string DIaChi { get; set; }
+        public string DiaChi { get; set; }
 
         [Column(TypeName = "money")]
-        public decimal? GIaTien { get; set; }
+        public decimal? GiaTien { get; set; }
 
         public bool? TrangThai { get; set; }
 
-        [StringLength(100)]
-        public string HinhAnh { get; set; }
+        [StringLength(128)]
+        public string IdUser { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTiet_DatSan> ChiTiet_DatSan { get; set; }
+        public virtual ICollection<GioDat> GioDat { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HoaDon> HoaDon { get; set; }
 
         public virtual LoaiSan LoaiSan { get; set; }
     }

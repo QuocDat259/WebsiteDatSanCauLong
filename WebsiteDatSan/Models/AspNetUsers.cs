@@ -19,6 +19,8 @@ namespace WebsiteDatSan.Models
         [StringLength(256)]
         public string FullName { get; set; }
 
+
+        public bool? IsApproved { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<AspNetUsers> manager)
         {
 
