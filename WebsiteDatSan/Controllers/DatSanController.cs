@@ -17,7 +17,7 @@ namespace WebsiteDatSan.Controllers
 {
     public class DatSanController : Controller
     {
-        WebCauLongss db = new WebCauLongss();
+        ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: DatSan
         public ActionResult DatSan(int? id)

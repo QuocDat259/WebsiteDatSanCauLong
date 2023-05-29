@@ -12,7 +12,7 @@ namespace WebsiteDatSan.Controllers
 {
     public class SansController : Controller
     {
-        private WebCauLongss db = new WebCauLongss();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Sans
         public ActionResult Index()

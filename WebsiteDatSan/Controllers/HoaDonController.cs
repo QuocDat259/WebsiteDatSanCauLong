@@ -12,7 +12,7 @@ namespace WebsiteDatSan.Controllers
 {
     public class HoaDonController : Controller
     {
-        WebCauLongss db = new WebCauLongss();
+        ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: HoaDon
         public ActionResult HoaDon()

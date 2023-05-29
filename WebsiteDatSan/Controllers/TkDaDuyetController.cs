@@ -29,7 +29,7 @@ namespace WebsiteDatSan.Controllers
 
             using (var db = new ApplicationDbContext())
             {
-                var sans = db.Sans.Where(p => p.IdUser == id /*&& p.status == true*/).ToList();
+                var sans = db.San.Where(p => p.IdUser == id /*&& p.status == true*/).ToList();
                 ViewBag.userId = id;
                 return View(sans);
             }
@@ -40,7 +40,7 @@ namespace WebsiteDatSan.Controllers
         {
             try
             {
-                using (var db = new WebCauLongss())
+                using (var db = new ApplicationDbContext())
                 {
                     var gioDats = db.GioDat.Where(g => g.idsan == id).ToList();
                     if (gioDats.Count == 0)
@@ -61,7 +61,7 @@ namespace WebsiteDatSan.Controllers
         }
         //public ActionResult Details(int id)
         //{
-        //    using (var db = new WebCauLongss())
+        //    using (var db = new ApplicationDbContext())
         //    {
         //        var hoaDon = db.San.Find(id);
         //        if (hoaDon == null)

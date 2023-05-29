@@ -5,10 +5,10 @@ using System.Linq;
 
 namespace WebsiteDatSan.Models
 {
-    public partial class Model1 : DbContext
+    public partial class ApplicationDbContext : DbContext
     {
-        public Model1()
-            : base("name=Model1")
+        public ApplicationDbContext()
+            : base("name=WebCauLongss")
         {
         }
 
@@ -16,8 +16,9 @@ namespace WebsiteDatSan.Models
         public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
-        public virtual DbSet<ChiTiet_DatSan> ChiTiet_DatSan { get; set; }
-        public virtual DbSet<DatSan> DatSan { get; set; }
+        public virtual DbSet<GioDat> GioDat { get; set; }
+        public virtual DbSet<HinhThucThanhToan> HinhThucThanhToan { get; set; }
+        public virtual DbSet<HoaDon> HoaDon { get; set; }
         public virtual DbSet<LoaiSan> LoaiSan { get; set; }
         public virtual DbSet<San> San { get; set; }
 
@@ -38,10 +39,9 @@ namespace WebsiteDatSan.Models
                 .WithRequired(e => e.AspNetUsers)
                 .HasForeignKey(e => e.UserId);
 
-            modelBuilder.Entity<DatSan>()
-                .HasMany(e => e.ChiTiet_DatSan)
-                .WithRequired(e => e.DatSan)
-                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<HoaDon>()
+                .Property(e => e.TongTien)
+                .HasPrecision(19, 4);
 
             modelBuilder.Entity<LoaiSan>()
                 .HasMany(e => e.San)
@@ -49,13 +49,13 @@ namespace WebsiteDatSan.Models
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<San>()
-                .Property(e => e.GIaTien)
+                .Property(e => e.GiaTien)
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<San>()
-                .HasMany(e => e.ChiTiet_DatSan)
-                .WithRequired(e => e.San)
-                .WillCascadeOnDelete(false);
+                .HasMany(e => e.GioDat)
+                .WithOptional(e => e.San)
+                .HasForeignKey(e => e.idsan);
         }
     }
 }

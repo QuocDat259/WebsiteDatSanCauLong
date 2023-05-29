@@ -29,6 +29,8 @@ namespace WebsiteDatSan.Models
 
         public DateTime? NgayDat { get; set; }
 
+        public virtual AspNetUsers AspNetUsers { get; set; }
+
         public virtual GioDat GioDat { get; set; }
 
         public virtual HinhThucThanhToan HinhThucThanhToan { get; set; }

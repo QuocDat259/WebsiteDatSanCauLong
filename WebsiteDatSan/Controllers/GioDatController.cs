@@ -12,7 +12,7 @@ namespace WebsiteDatSan.Controllers
 {
     public class GioDatController : Controller
     {
-        private WebCauLongss db = new WebCauLongss();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: GioDat
         public ActionResult Index()

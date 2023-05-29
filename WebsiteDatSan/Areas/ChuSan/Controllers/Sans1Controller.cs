@@ -22,7 +22,7 @@ namespace WebsiteDatSan.Areas.ChuSan.Controllers
             string userId = User.Identity.GetUserId();
 
             // Lấy danh sách các sân có ID người dùng đang đăng nhập từ cơ sở dữ liệu
-            var sans = db.Sans.Where(s => s.IdUser == userId).ToList();
+            var sans = db.San.Where(s => s.IdUser == userId).ToList();
 
             return View(sans);
         }
@@ -34,7 +34,7 @@ namespace WebsiteDatSan.Areas.ChuSan.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            San san = db.Sans.Find(id);
+            San san = db.San.Find(id);
             if (san == null)
             {
                 return HttpNotFound();
@@ -45,7 +45,7 @@ namespace WebsiteDatSan.Areas.ChuSan.Controllers
         // GET: ChuSan/Sans1/Create
         public ActionResult Create()
         {
-            ViewBag.MaLoaiSan = new SelectList(db.LoaiSans, "MaLoaiSan", "TenLoaiSan");
+            ViewBag.MaLoaiSan = new SelectList(db.LoaiSan, "MaLoaiSan", "TenLoaiSan");
             return View();
         }
 
@@ -58,12 +58,12 @@ namespace WebsiteDatSan.Areas.ChuSan.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Sans.Add(san);
+                db.San.Add(san);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MaLoaiSan = new SelectList(db.LoaiSans, "MaLoaiSan", "TenLoaiSan", san.MaLoaiSan);
+            ViewBag.MaLoaiSan = new SelectList(db.LoaiSan, "MaLoaiSan", "TenLoaiSan", san.MaLoaiSan);
             return View(san);
         }
 
@@ -74,12 +74,12 @@ namespace WebsiteDatSan.Areas.ChuSan.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            San san = db.Sans.Find(id);
+            San san = db.San.Find(id);
             if (san == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MaLoaiSan = new SelectList(db.LoaiSans, "MaLoaiSan", "TenLoaiSan", san.MaLoaiSan);
+            ViewBag.MaLoaiSan = new SelectList(db.LoaiSan, "MaLoaiSan", "TenLoaiSan", san.MaLoaiSan);
             return View(san);
         }
 
@@ -96,7 +96,7 @@ namespace WebsiteDatSan.Areas.ChuSan.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MaLoaiSan = new SelectList(db.LoaiSans, "MaLoaiSan", "TenLoaiSan", san.MaLoaiSan);
+            ViewBag.MaLoaiSan = new SelectList(db.LoaiSan, "MaLoaiSan", "TenLoaiSan", san.MaLoaiSan);
             return View(san);
         }
 
@@ -107,7 +107,7 @@ namespace WebsiteDatSan.Areas.ChuSan.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            San san = db.Sans.Find(id);
+            San san = db.San.Find(id);
             if (san == null)
             {
                 return HttpNotFound();
@@ -120,8 +120,8 @@ namespace WebsiteDatSan.Areas.ChuSan.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            San san = db.Sans.Find(id);
-            db.Sans.Remove(san);
+            San san = db.San.Find(id);
+            db.San.Remove(san);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -8,29 +8,26 @@ using System.Web.Mvc;
 using WebsiteDatSan.Models;
 using System.Net;
 using System.Threading.Tasks;
+using System.Data.Entity.Migrations;
 
 namespace WebsiteDatSan.Areas.Admin.Controllers
 {
     public class QLChuSanController : Controller
     {
-        private readonly UserManager<AspNetUsers> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
         private ApplicationDbContext _context;
         public QLChuSanController()
         {
             _context = new ApplicationDbContext();
-            _userManager = new UserManager<AspNetUsers>(new UserStore<AspNetUsers>(_context));
-            _roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(_context));
         }
         // GET: Admin/QLChuSan
         public ActionResult Index()
         {
             List<AspNetUsers> ListUser = new List<AspNetUsers>();
-            var role = _roleManager.FindByName("ChuSan");
-            foreach (var user in _userManager.Users)
+            var role = _context.AspNetRoles.FirstOrDefault(u => u.Name == "ChuSan");
+            foreach (var user in ListUser)
             {
 
-                if (user.Roles.Where(e => e.RoleId == role.Id).FirstOrDefault() != null)
+                if (user.AspNetRoles.Where(e => e.Id == role.Id).FirstOrDefault() != null)
                 {
                     ListUser.Add(user);
                 }
@@ -40,24 +37,24 @@ namespace WebsiteDatSan.Areas.Admin.Controllers
             return View(ListUser);
         }
 
-        public async Task<ActionResult> Approve(string id)
+        public ActionResult Approve(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var user = await _userManager.FindByIdAsync(id);
+            var user =  _context.AspNetUsers.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
             }
 
             user.IsApproved = true;
-            await _userManager.UpdateAsync(user);
+            _context.AspNetUsers.AddOrUpdate(user);
 
             // Lưu thay đổi vào cơ sở dữ liệu
-            await _context.SaveChangesAsync();
+             _context.SaveChanges();
 
             return RedirectToAction("Index");
         }

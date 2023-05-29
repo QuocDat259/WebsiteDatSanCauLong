@@ -13,7 +13,7 @@ namespace WebsiteDatSan.Areas.ChuSan.Controllers
 {
     public class QLGioDatsController : Controller
     {
-        private WebCauLongss db = new WebCauLongss();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: ChuSan/QLGioDats
         public ActionResult Index()
