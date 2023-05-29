@@ -1,0 +1,40 @@
+﻿@model IEnumerable<WebsiteDatSan.Models.HoaDon>
+
+@{
+    ViewBag.Title = "Danh sách hóa đơn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách hóa đơn</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Mã hóa đơn</th>
+            <th>Tên người dùng</th>
+            <th>Tên sân</th>
+            <th>Thời gian</th>
+            <th>Tổng tiền</th>
+            <th>Ngày đặt</th>
+            <th>Hình thức thanh toán</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var hoaDon in Model)
+        {
+            <tr>
+                <td>@hoaDon.MaHoaDon</td>
+                <td>Tên người dùng: @ViewBag.UserName</td>
+                <td>@hoaDon.San.TenSan</td>
+                <td>@hoaDon.GioDat.GioBatDau - @hoaDon.GioDat.GioKetThuc</td>
+                <td>@string.Format("{0:0,0}", hoaDon.TongTien) VNĐ</td>
+                <td>@hoaDon.NgayDat</td>
+                <td>@hoaDon.HinhThucThanhToan.TenHinhThuc</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    @Html.ActionLink("Quay lại", "Index", "Home")
+</div>

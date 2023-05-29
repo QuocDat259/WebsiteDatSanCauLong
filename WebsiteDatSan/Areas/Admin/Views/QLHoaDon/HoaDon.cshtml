@@ -1,0 +1,65 @@
+﻿@model IEnumerable<WebsiteDatSan.Models.HoaDon>
+
+@{
+    ViewBag.Title = "HoaDon";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách hóa đơn</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Thời gian</th>
+            <th>Sân</th>
+            <th>Mã người dùng</th>
+            <th>Mã hóa đơn</th>
+            <th>Tổng tiền</th>
+            <th>Trạng thái</th>
+            <th>Ngày đặt</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GioDat.GioBatDau) - @Html.DisplayFor(modelItem => item.GioDat.GioKetThuc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.San.TenSan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaHoaDon)
+                </td>
+                <td>
+                    @{
+                        string[] parts = item.TongTien.ToString().Split(',');
+                        string tien = parts[0];
+                    }
+                    <label id="TongTien" name="TongTien" value="">@string.Format("{0:#,#}", tien) VNĐ</label>
+                </td>
+                <td>
+                    @if (item.TrangThai == true)
+                    {
+                        <span class="text-success">Đã thanh toán</span>
+                    }
+                    else
+                    {
+                        <span class="text-danger">Chưa thanh toán</span>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayDat)
+                </td>
+                <td>
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.id }, new { @class = "btn btn-primary btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
