@@ -1,5 +1,4 @@
-﻿@model IEnumerable<WebsiteDatSan.Models.HoaDon>
-
+﻿@model WebsiteDatSan.Models.AdminVM
 @{
     ViewBag.Title = "HoaDon";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -21,30 +20,36 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var hd in Model.HoaDons)
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.GioDat.GioBatDau) - @Html.DisplayFor(modelItem => item.GioDat.GioKetThuc)
+                    @Html.DisplayFor(modelItem => hd.GioDat.GioBatDau) - @Html.DisplayFor(modelItem => hd.GioDat.GioKetThuc)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.San.TenSan)
+                    @Html.DisplayFor(modelItem => hd.San.TenSan)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.id)
+                    @foreach (var user in Model.AspNetUsers)
+                    {
+                        if (user.Id == hd.id)
+                        {
+                            @Html.DisplayFor(modelItem => user.FullName)
+                        }
+                    }
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.MaHoaDon)
+                    @Html.DisplayFor(modelItem => hd.MaHoaDon)
                 </td>
                 <td>
                     @{
-                        string[] parts = item.TongTien.ToString().Split(',');
+                        string[] parts = hd.TongTien.ToString().Split(',');
                         string tien = parts[0];
                     }
                     <label id="TongTien" name="TongTien" value="">@string.Format("{0:#,#}", tien) VNĐ</label>
                 </td>
                 <td>
-                    @if (item.TrangThai == true)
+                    @if (hd.TrangThai == true)
                     {
                         <span class="text-success">Đã thanh toán</span>
                     }
@@ -54,10 +59,10 @@
                     }
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.NgayDat)
+                    @Html.DisplayFor(modelItem => hd.NgayDat)
                 </td>
                 <td>
-                    @Html.ActionLink("Chi tiết", "Details", new { id = item.id }, new { @class = "btn btn-primary btn-sm" })
+                    @Html.ActionLink("Chi tiết", "Details", new { id = hd.id }, new { @class = "btn btn-primary btn-sm" })
                 </td>
             </tr>
         }
